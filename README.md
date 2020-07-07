@@ -32,36 +32,37 @@ Things you may want to cover:
 |password|string|null: false|
 ### Association
 - has_many :groups, through: :groups_users
-- has_many :posts
+- has_many :messages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null :false|
 |user_id|integer|null :false, foreign_key: true|
-|post_id|integer|null: false, foreign_key: true| 
+|message_id|integer|null: false, foreign_key: true| 
 ### Association
 - has_many :users, through: :groups_users
-- has_many :posts, through: :groups_posts
+- has_many :messages, through: :groups_posts
 
-## postsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null :false|
-|image|text||
-|user_id|integer|null: false|
+|body|text|null :false|
+|image|string||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :groups, through: :groups_posts
 
-## groups_postsテーブル
+## groups_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groups_id|integer|null: false, foreign_key: true| 
-|post_id|integer|null: false, foreign_key: true| 
+|message_id|integer|null: false, foreign_key: true| 
 ### Association
 - belongs_to :group
-- belongs_to :post
+- belongs_to :message
 
 ## groups_usersテーブル
 |Column|Type|Options|
