@@ -1,13 +1,3 @@
-@mixin font($color, $fontSize) {
-  color: $color;
-  font-size: $fontSize;
-}
-
-@mixin looks($display, $justifyContent){
-  display: $display;
-  justify-content: $justifyContent;
-}
-
 * {
   box-sizing: border-box;
 }
