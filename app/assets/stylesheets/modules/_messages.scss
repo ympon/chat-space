@@ -1,0 +1,148 @@
+@mixin font($color, $fontSize) {
+  color: $color;
+  font-size: $fontSize;
+}
+
+@mixin looks($display, $justifyContent){
+  display: $display;
+  justify-content: $justifyContent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+  display: flex;
+}
+
+.side-bar {
+  width: 300px;
+  &__header {
+    background-color: #253141;
+    height: 100px;
+    font-weight: bold;
+    @include looks(flex, center);
+    align-items: center;
+    .top-items{
+      color: #fff;
+      height: 20px;
+      width: 260px;
+      @include looks(flex, space-between);
+      align-items: center;
+      &_name{
+        font-size: 16px;
+      }
+      &__icon{
+        &__list{
+          color: #fff;
+          text-decoration: none;
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+  &__group {
+    background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    .group-menu{
+      text-decoration: none;
+      color: #fff;
+      &__name {
+        font-size: 15px;
+        padding: 20px 20px 5px 20px;
+      }
+      &__message {
+        font-size: 11px;
+        padding: 0 20px  40px 20px;
+      }
+    } 
+  }
+}
+
+.chat-main {
+  width: calc(100vw - 300px);
+  &__group-info {
+    background-color: #fff;
+    height: 100px;
+    border-bottom: 1px solid #eee;
+    .info-bar {
+      @include looks(flex, space-between);
+      padding: 0 40px;
+      &__group {
+        @include font(#333, 20px);
+        padding-top: 35px;
+        &__member{
+          @include font(#999, 12px);
+          padding-top: 15px;
+        }
+      }
+      &__edit {
+        @include font(#38aef0, 16px);
+        height: 40px;
+        text-decoration: none;
+        line-height: 40px;
+        border: 1px solid #38aef0;
+        padding: 0 20px;
+        margin-top: 28px;
+      }
+    }
+  }
+  &__message-list {
+    background-color: #fafafa;
+    height: calc(100vh - 100px - 90px);
+    padding: 35px 0 0 40px;
+      .message-title {
+        display: flex;
+        padding-bottom: 12px;
+        &__username {
+          @include font(#333, 16px);
+          font-weight: bold;
+        }
+        &__date {
+          @include font(#999, 12px);
+          padding-left: 5px;
+        }
+      }
+      .message-content {
+        @include font(#434A54, 14px);
+        padding-bottom: 46px;
+      }
+  }
+  .form {
+    background-color: #d2d2d2;
+    height: 90px;
+    padding: 20px 40px;
+    form {
+      display: flex;
+      .input-box {   
+        width: 100%;
+        position: relative;
+        &__text {
+          height: 50px;
+          width: 100%;
+          padding:0 40px 0 10px; 
+          border-style: none;
+        }
+        &__image {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
+          &__file{
+            display: none;
+          }
+        }
+      }
+      .submit-btn {
+        background-color: #38aef0;
+        @include font(#fff, 16px);
+        margin-left: 15px;
+        height: 50px;
+        padding: 0 30px;
+        cursor: pointer;
+        border-style: none;
+      }    
+    }
+  }
+}
